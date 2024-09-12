@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./back
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - DJANGO_SETTINGS_MODULE=your_project_name.settings
+    volumes:
+      - ./back:/app
+
+  frontend:
+    build:
+      context: ./front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
