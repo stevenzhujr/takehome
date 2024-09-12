@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#these are added for the APIs
 from . import views
 from .api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', api.urls),
+    #below are urls for each set of data
     path('api/candlestick-data/', views.get_candlestick_data),
     path('api/line-chart-data/', views.get_line_chart_data),
     path('api/bar-chart-data/', views.get_bar_chart_data),
